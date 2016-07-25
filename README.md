@@ -1,5 +1,4 @@
-Struts2
-#
+#Struts2
 
 是一个用于开发MVC应用程序的框架
 使用一个过滤器作为控制器
@@ -8,8 +7,7 @@ HTML表单被直接映射到一个POJO（普通java类
 任何一个POJO都可以是一个Action
 使用OGNL显示各个对象模型，可以不适用EL和JSTL
 
-#
-Hello World
+#Hello World
 
 搭建Struts2环境
 -加入jar包：复制struts\apps\struts2-blank\WEB-INF\lib下的所有jar包到当前web应用的lib下
