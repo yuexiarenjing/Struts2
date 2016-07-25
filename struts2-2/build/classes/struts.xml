@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<!-- 
+		package:包，struts2使用package组织模块，
+		name:必须，用于其他的包引用当前包
+		extends:当前包继承哪个包，继承的，继承其中所有的配置，通常为struts-default
+	 	structs-default这个包在structs-default.xml文件中定义
+	 	namespace：可选的，默认为"/"，若非默认值，则调用action，必须把它加到URL中
+	 			http：localhost:8080/contextpath/namespace/actionname.action	
+	 -->
+	<package name="helloWorld" extends="struts-default" namespace="/">
+	
+		<!--
+			 配置一个action：一个struts2请求就是一个action
+			name:对应一个请求的名字（或者对应servletPath，但去除扩展名），不包含扩展名
+		 	class默认值为com.opensymphony.xwork2.ActionSupport
+		 	method默认值为execute
+		 	result：结果
+		 -->
+		<action name="product-input" 
+		class="com.opensymphony.xwork2.ActionSupport"
+		method="execute">
+			<!-- 
+				result:结果，表示action方法执行后可能返回的一个结果，所以一个action节点可能会有多个result子节点
+				多个子节点使用name来区分
+				name：表示一个result，和action方法的一个返回值对应，默认success
+			 	type:表示结果类型，默认dispatcher（转发到结果）
+			 -->
+			<result name="success" type="dispatcher">/WEB-INF/pages/input.jsp</result>
+		</action>
+	
+		<action name="product-save" class="edu.tongji.struts2.helloworld.Product"
+			method="save">
+			<result name="details">/WEB-INF/pages/details.jsp</result>	
+		</action>
+	
+	</package>
+
+</struts>
